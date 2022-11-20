@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: ./dist/apm
+          path: ./APM-Final/dist/apm
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,10 +41,10 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-#      - name: Download artifact from build job
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: node-app
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: node-app
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -53,4 +53,4 @@ jobs:
           app-name: 'apm-final'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_79EB212C689E4343A9BB4C6B75C36C6C }}
-          package: ./dist/apm
+          package: ./APM-Final/dist/apm
