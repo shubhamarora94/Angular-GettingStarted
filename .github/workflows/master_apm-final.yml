@@ -53,4 +53,4 @@ jobs:
           app-name: 'apm-final'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_79EB212C689E4343A9BB4C6B75C36C6C }}
-          package: ./APM-Final/dist/apm
+          package: .
